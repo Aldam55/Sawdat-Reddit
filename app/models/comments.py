@@ -13,6 +13,9 @@ class Comment(db.Model):
     created_at = db.Column(db.DateTime(timezone=True),
                            server_default=func.current_timestamp())
 
+    user = db.relationship("User", back_populates="comments")
+    posts = db.relationship("Post", back_populates="comments")
+
     def to_dict(self):
         return {
             "id": self.id,

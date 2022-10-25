@@ -13,6 +13,10 @@ class Community(db.Model):
     created_at = db.Column(db.DateTime(timezone=True),
                            server_default=func.current_timestamp())
 
+    owner = db.relationship("User", back_populates="communities")
+    posts = db.relationship(
+        "Post", back_populates="communities", cascade="all, delete")
+
     def to_dict(self):
         return {
             "id": self.id,
