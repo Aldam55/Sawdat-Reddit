@@ -1,5 +1,5 @@
 from flask import Blueprint, request, jsonify
-from app.models import Post, Community
+from app.models import Comment, Post
 
 
 def validation_form_errors(validation_errors):
@@ -10,10 +10,10 @@ def validation_form_errors(validation_errors):
     return errors
 
 
-post_routes = Blueprint("posts", __name__)
+comment_routes = Blueprint("comments", __name__)
 
 
-# GET ALL POSTS
-@post_routes.route("/", methods=["GET"])
-def get_all_posts():
-    posts = Post.query.all()
+# GET ALL COMMENTS
+@comment_routes.route("/", methods=["GET"])
+def get_all_comments():
+    comments = Comment.query.all()
