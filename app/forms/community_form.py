@@ -13,5 +13,6 @@ def valid_name(form, field):
 
 class CommunityForm(FlaskForm):
     name = StringField('Name', validators=[DataRequired(), valid_name])
-    banner_url = StringField('Banner', validators=[DataRequired()])
+    about = StringField("About", validators=[DataRequired()])
+    banner_url = StringField('Banner')
     icon_url = StringField('Icon', validators=[DataRequired()])
