@@ -127,3 +127,45 @@ def create_post(id):
 
         return post.to_dict()
     return {"errors": validation_form_errors(form.errors), "statusCode": 404}
+
+
+# EDIT A COMMUNITY
+@community_routes.route("/<int:id>", methods=["PUT"])
+@login_required
+def edit_community(id):
+    community = Community.query.get(id)
+    if not community:
+        return {"message": "Community couldn't be found", "statusCode": 404}
+
+    if not community.user_id == current_user.id:
+        return {"message": "Forbidden", "statusCode": 403}
+
+    form = CommunityForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        community.name = form.name.data
+        community.about = form.about.data
+        community.banner_url = form.banner_url.data
+        community.icon_url = form.icon_url
+
+        db.session.commit()
+
+        return community.to_dict()
+    return {"errors": validation_form_errors(form.errors), "statusCode": 401}
+
+
+# DELETE A COMMUNITY
+@community_routes.route("/<int:id>", methods=["DELETE"])
+@login_required
+def delete_community(id):
+    community = Community.query.get(id)
+    if not community:
+        return {"message": "Community couldn't be found", "statusCode": 404}
+
+    if not community.user_id == current_user.id:
+        return {"message": "Forbidden", "statusCode": 403}
+
+    db.session.delete(community)
+    db.session.commit()
+
+    return {"message": "Successfully deleted", "statusCode": 200}
