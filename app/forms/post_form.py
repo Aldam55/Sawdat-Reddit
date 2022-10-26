@@ -11,9 +11,9 @@ def valid_title(form, field):
 
 def valid_description(form, field):
     description = field.data
-    if len(description) < 10 or len(description) > 3000:
+    if len(description) > 3000:
         raise ValidationError(
-            "Description must be between 10 and 3000 characters.")
+            "Description must be less than 3000 characters.")
 
 
 class PostForm(FlaskForm):

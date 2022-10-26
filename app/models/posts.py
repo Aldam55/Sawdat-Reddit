@@ -1,5 +1,4 @@
-from tkinter import CASCADE
-from db import db
+from .db import db
 from sqlalchemy.sql import func
 
 
@@ -18,7 +17,7 @@ class Post(db.Model):
                            onupdate=func.current_timestamp())
 
     user = db.relationship("User", back_populates="posts")
-    communities = db.relationship("Post", back_populates="posts")
+    communities = db.relationship("Community", back_populates="posts")
     comments = db.relationship(
         "Comment", back_populates="posts", cascade="all, delete")
 

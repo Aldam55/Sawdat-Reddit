@@ -66,7 +66,7 @@ def get_community_by_id(id):
 
 
 # GET POSTS BY COMMUNITY ID
-@community_routes.route("/int:id>/posts", methods=["GET"])
+@community_routes.route("/<int:id>/posts", methods=["GET"])
 def get_post_by_community(id):
     community = Community.query.get(id)
     if not community:
