@@ -72,7 +72,7 @@ for i in range(0, len(communities)):
 def seed_communities():
     for community in community_lst:
         db.session.add(community)
-    db.session.commit
+    db.session.commit()
 
 
 def undo_communities():
