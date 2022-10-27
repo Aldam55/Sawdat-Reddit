@@ -19,7 +19,16 @@ post_routes = Blueprint("posts", __name__)
 # GET ALL POSTS
 @post_routes.route("/", methods=["GET"])
 def get_all_posts():
-    posts = Post.query.all()
+    posts = Post.query.order_by(Post.created_at.desc()).all()
+    post_lst = []
+
+    for post in posts:
+        owner = (User.query.filter(User.id == post.user_id).one()).to_dict()
+        post_dict = post.to_dict()
+        post_dict["Owner"] = owner
+        post_lst.append(post_dict)
+
+    return {"posts": [post for post in post_lst]}
 
 
 # GET POSTS OWNED BY CURRENT USER
@@ -67,6 +76,23 @@ def edit_post(id):
 
         return post.to_dict()
     return {"errors": validation_form_errors(form.errors), "statusCode": 401}
+
+
+# DELETE A POST
+@post_routes.route("/<int:id>", methods=["DELETE"])
+@login_required
+def delete_post(id):
+    post = Post.query.get(id)
+
+    if not post:
+        return {"message": "Post couldn't be found", "statusCode": 404}
+    if not current_user.id == post.user_id:
+        return {"message": "Forbidden", "statusCode": 403}
+
+    db.session.delete(post)
+    db.session.commit()
+
+    return {"message": "Successfully delete", "statusCode": 200}
 
 
 # GET ALL COMMENTS FOR A POST BY ID
