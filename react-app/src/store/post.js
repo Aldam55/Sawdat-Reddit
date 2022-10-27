@@ -151,6 +151,19 @@ const postReducer = (state = initialState, action) => {
             action.posts.forEach(post => {
                 community[post.id] = post
             })
+        case CREATE:
+            newState = { community: { ...state.community }, user: { ...state.user } }
+            newState.community[action.post.id] = action.post
+            return newState
+        case UPDATE:
+            newState = { community: { ...state.community }, user: { ...state.user } }
+            newState.community[action.post.id] = action.poist
+            return newState
+        case REMOVE:
+            newState = { ...state, community: { ...state.community }, user: { ...state.user } }
+            delete newState.community[action.postId]
+            delete newState.user[action.postId]
+            return newState
         default:
             return state
     }
