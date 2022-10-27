@@ -1,8 +1,13 @@
 const LOAD_ALL = "communities/LOAD_ALL"
+const LOAD_ONE = "communities/LOAD_ONE"
 
 const loadAll = (communities) => ({
     type: LOAD_ALL,
     communities
+})
+const loadOne = community => ({
+    type: LOAD_ONE,
+    community
 })
 
 export const getAllCommunitiesThunk = () => async dispatch => {
@@ -18,6 +23,19 @@ export const getAllCommunitiesThunk = () => async dispatch => {
     return
 }
 
+export const getOneCommunityThunk = (communityId) => async dispatch => {
+    const response = await fetch(`/api/communities/${communityId}`)
+
+    if (response.ok) {
+        const singleCommunityData = await response.json()
+        dispatch(loadOne(singleCommunityData))
+        return singleCommunityData
+    } else {
+        console.log("---- SINGLE COMMUNITY THUNK ERROR ----")
+    }
+    return
+}
+
 let initialState = {
     allCommunities: {},
     singleCommunity: {}
@@ -25,16 +43,20 @@ let initialState = {
 
 const communityReducer = (state = initialState, action) => {
     let newState;
-    let allBusiness = {}
+    let allCommunities = {}
     switch (action.type) {
         case LOAD_ALL:
-            action.communities.forEach(community => {
+            action.communities.communities.forEach(community => {
                 allCommunities[community.id] = community
             })
             return {
                 ...state,
                 allCommunities
             }
+        case LOAD_ONE:
+            newState = { ...state, allCommunities: { ...state.allCommunities }, singleCommunity: { ...state.singleCommunity } }
+            newState.singleCommunity = action.community
+            return { ...newState }
         default:
             return state
     }

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getAllCommunitiesThunk } from '../../store/community'
+import { getAllCommunitiesThunk } from '../../../store/community'
+import "./AllCommunities.css"
 
 const AllCommunities = () => {
     const dispatch = useDispatch()
