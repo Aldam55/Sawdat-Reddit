@@ -14,6 +14,7 @@ import SingleCommunity from './components/Communities/SingleCommunity';
 import CreateCommunity from './components/Communities/CreateCommunity';
 import AllPosts from './components/Posts/AllPosts';
 import UpdateCommunity from './components/Communities/UpdateCommunity';
+import CreatePost from './components/Posts/CreatePost';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -65,6 +66,10 @@ function App() {
 
         <ProtectedRoute path='/communities/:communityId/updatecommunity' exact={true}>
           <UpdateCommunity></UpdateCommunity>
+        </ProtectedRoute>
+
+        <ProtectedRoute path='/communities/:communityId/createpost' exact={true}>
+          <CreatePost></CreatePost>
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>

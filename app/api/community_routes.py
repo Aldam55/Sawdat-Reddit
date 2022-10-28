@@ -116,8 +116,8 @@ def create_post(id):
     if not community:
         return {"message": "Community couldn't be found.", "statusCode": 404}
 
-    form = CommunityForm()
-    form['csrf_token'].data == request.cookies['csrf_token']
+    form = PostForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         post = Post(
             user_id=current_user.id,

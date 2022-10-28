@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams, useHistory, NavLink } from "react-router-dom";
 import { deleteCommunityThunk, getSingleCommunityThunk } from "../../../store/community";
 import CommunityPosts from "../../Posts/CommunityPosts";
 import "./SingleCommunity.css"
@@ -48,6 +48,13 @@ const SingleCommunity = () => {
                             </>
                         )}
                     </div>
+                    {user && user.id !== community.user_id && (
+                        <>
+                            <NavLink to={`/communities/${communityId}/createpost`}>
+                                Create a Post
+                            </NavLink>
+                        </>
+                    )}
                     <div>
                         {community.about}
                     </div>
