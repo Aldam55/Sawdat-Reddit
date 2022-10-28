@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, useHistory } from "react-router-dom";
-import { getSingleCommunityThunk } from "../../../store/community";
+import { deleteCommunityThunk, getSingleCommunityThunk } from "../../../store/community";
 import CommunityPosts from "../../Posts/CommunityPosts";
 import "./SingleCommunity.css"
 
@@ -16,6 +16,14 @@ const SingleCommunity = () => {
 
     const updateRedirect = () => {
         history.push(`/communities/${communityId}/updatecommunity`)
+    }
+    const deleteHandler = async () => {
+        if (window.confirm("Are you sure you want to delete your community?")) {
+            await dispatch(deleteCommunityThunk(communityId))
+            history.push('/communities')
+        } else {
+            history.push(`/communities/${communityId}`)
+        }
     }
 
     useEffect(() => {
@@ -33,6 +41,9 @@ const SingleCommunity = () => {
                             <>
                                 <div>
                                     <button onClick={updateRedirect}>Edit Community</button>
+                                </div>
+                                <div>
+                                    <button onClick={deleteHandler}>Delete Community</button>
                                 </div>
                             </>
                         )}

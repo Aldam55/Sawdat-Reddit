@@ -57,7 +57,7 @@ const UpdateCommunity = () => {
                 banner_url: bannerUrl,
                 icon_url: iconUrl
             }
-            console.log('community object in update community', communityObj)
+
             let updatedCommunity = await dispatch(updateCommunityThunk(communityObj, communityId))
 
             if (updatedCommunity) {
