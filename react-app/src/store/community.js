@@ -53,14 +53,14 @@ export const getSingleCommunityThunk = (communityId) => async dispatch => {
 }
 
 export const createCommunityThunk = (community) => async dispatch => {
-    const response = await fetch('/api/communities', {
+    const response = await fetch('/api/communities/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(community)
     })
-
+    console.log("response in create community thunk", response)
     if (response.ok) {
         const createdCommunity = await response.json()
         dispatch(create(createdCommunity))

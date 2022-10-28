@@ -96,11 +96,15 @@ def create_community():
         community = Community(
             user_id=current_user.id,
             name=form.name.data,
+            about=form.about.data,
             banner_url=form.banner_url.data,
             icon_url=form.icon_url.data
         )
         db.session.add(community)
         db.session.commit()
+
+        return community.to_dict()
+    return {"errors": validation_form_errors(form.errors), "statusCode": 401}
 
 
 # CREATE A POST FOR COMMUNITY VIA ID

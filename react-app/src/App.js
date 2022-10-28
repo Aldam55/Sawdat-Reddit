@@ -11,6 +11,7 @@ import { authenticate } from './store/session';
 
 import AllCommunities from './components/Communities/AllCommunities';
 import SingleCommunity from './components/Communities/SingleCommunity';
+import CreateCommunity from './components/Communities/CreateCommunity';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -51,9 +52,14 @@ function App() {
           <AllCommunities></AllCommunities>
         </Route>
 
+        <Route path='/communities/create' exact={true}>
+          <CreateCommunity></CreateCommunity>
+        </Route>
+        
         <Route path='/communities/:communityId' exact={true}>
           <SingleCommunity></SingleCommunity>
         </Route>
+
       </Switch>
     </BrowserRouter>
   );
