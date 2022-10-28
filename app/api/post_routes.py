@@ -1,7 +1,7 @@
 from crypt import methods
 from flask import Blueprint, request, jsonify
 from app.forms.post_form import PostForm
-from app.models import Post, User, db, Comment
+from app.models import Post, User, db, Comment, Community
 from flask_login import current_user, login_required
 
 
@@ -23,8 +23,10 @@ def get_all_posts():
     post_lst = []
 
     for post in posts:
+        community = (Community.query.filter(Community.id == post.community_id).one()).to_dict()
         owner = (User.query.filter(User.id == post.user_id).one()).to_dict()
         post_dict = post.to_dict()
+        post_dict["Community"] = community
         post_dict["Owner"] = owner
         post_lst.append(post_dict)
 

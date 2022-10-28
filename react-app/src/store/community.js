@@ -25,6 +25,9 @@ const remove = communityId => ({
     type: REMOVE,
     communityId
 })
+export const resetCommunity = () => ({
+    type: RESET
+})
 
 export const getAllCommunitiesThunk = () => async dispatch => {
     const response = await fetch("/api/communities/")
@@ -145,6 +148,8 @@ const communityReducer = (state = initialState, action) => {
                 newState.singleCommunity = {}
             }
             return newState
+        case RESET:
+            return initialState
         default:
             return state
     }
