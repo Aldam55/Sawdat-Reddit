@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getSingleCommunityThunk } from "../../../store/community";
+import CommunityPosts from "../../Posts/CommunityPosts";
 import "./SingleCommunity.css"
 
 const SingleCommunity = () => {
@@ -20,16 +21,19 @@ const SingleCommunity = () => {
     return isLoaded && (
         <>
             {community.id &&
-            <div>
                 <div>
-                {community.name}
+                    <div>
+                        {community.name}
+                    </div>
+                    <div>
+                        {community.about}
+                    </div>
+                    <img src={community.banner_url} alt='banner'></img>
+                    <img src={community.icon_url} alt='icon'></img>
+                    <div>
+                        <CommunityPosts></CommunityPosts>
+                    </div>
                 </div>
-                <div>
-                {community.about}
-                </div>
-                <img src={community.banner_url} alt='banner'></img>
-                <img src={community.icon_url} alt='icon'></img>
-            </div>
             }
         </>
     )

@@ -148,16 +148,22 @@ const postReducer = (state = initialState, action) => {
             newState.community[action.post.id] = action.post
             return newState
         case LOAD_COMMUNITY_POSTS:
+            console.log("POSTS IN LOAD COMMUNITY POSTS", action.posts)
             action.posts.forEach(post => {
                 community[post.id] = post
             })
+            return {
+                ...state,
+                community
+            }
         case CREATE:
+            console.log("ACTION IN CREATE POST", action)
             newState = { community: { ...state.community }, user: { ...state.user } }
-            newState.community[action.post.id] = action.post
+            newState.community[action.posts.id] = action.post
             return newState
         case UPDATE:
             newState = { community: { ...state.community }, user: { ...state.user } }
-            newState.community[action.post.id] = action.poist
+            newState.community[action.posts.id] = action.poist
             return newState
         case REMOVE:
             newState = { ...state, community: { ...state.community }, user: { ...state.user } }
