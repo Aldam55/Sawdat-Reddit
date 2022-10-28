@@ -12,6 +12,7 @@ import { authenticate } from './store/session';
 import AllCommunities from './components/Communities/AllCommunities';
 import SingleCommunity from './components/Communities/SingleCommunity';
 import CreateCommunity from './components/Communities/CreateCommunity';
+import AllPosts from './components/Posts/AllPosts';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -44,9 +45,10 @@ function App() {
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute>
-        <ProtectedRoute path='/' exact={true} >
+        <Route path='/' exact={true} >
           <h1>My Home Page</h1>
-        </ProtectedRoute>
+          <AllPosts></AllPosts>
+        </Route>
 
         <Route path='/communities' exact={true}>
           <AllCommunities></AllCommunities>
@@ -55,7 +57,7 @@ function App() {
         <Route path='/communities/create' exact={true}>
           <CreateCommunity></CreateCommunity>
         </Route>
-        
+
         <Route path='/communities/:communityId' exact={true}>
           <SingleCommunity></SingleCommunity>
         </Route>

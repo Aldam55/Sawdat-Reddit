@@ -136,7 +136,7 @@ const postReducer = (state = initialState, action) => {
     switch (action.type) {
         case LOAD_ALL:
             console.log("ACTION.POSTS IN LOAD ALL POSTS", action.posts)
-            action.posts.forEach(post => {
+            action.posts.posts.forEach(post => {
                 allPosts[post.id] = post
             })
             return {
