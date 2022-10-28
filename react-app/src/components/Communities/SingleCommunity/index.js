@@ -1,18 +1,23 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { getSingleCommunityThunk } from "../../../store/community";
 import CommunityPosts from "../../Posts/CommunityPosts";
 import "./SingleCommunity.css"
 
 const SingleCommunity = () => {
     const dispatch = useDispatch()
+    const history = useHistory()
     const { communityId } = useParams()
 
     const community = useSelector(state => state.communities.singleCommunity)
     const user = useSelector(state => state.session.user)
     const [isLoaded, setIsLoaded] = useState(false)
-    console.log('this is the single community', community)
+
+    const updateRedirect = () => {
+        history.push(`/communities/${communityId}/updatecommunity`)
+    }
+
     useEffect(() => {
         dispatch(getSingleCommunityThunk(communityId))
             .then(() => { setIsLoaded(true) })
@@ -24,6 +29,13 @@ const SingleCommunity = () => {
                 <div>
                     <div>
                         {community.name}
+                        {user && user.id === community.user_id && (
+                            <>
+                                <div>
+                                    <button onClick={updateRedirect}>Edit Community</button>
+                                </div>
+                            </>
+                        )}
                     </div>
                     <div>
                         {community.about}

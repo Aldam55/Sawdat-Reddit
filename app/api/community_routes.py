@@ -150,7 +150,7 @@ def edit_community(id):
         community.name = form.name.data
         community.about = form.about.data
         community.banner_url = form.banner_url.data
-        community.icon_url = form.icon_url
+        community.icon_url = form.icon_url.data
 
         db.session.commit()
 
