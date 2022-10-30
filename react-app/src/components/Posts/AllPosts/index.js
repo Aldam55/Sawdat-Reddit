@@ -20,7 +20,7 @@ const AllPosts = () => {
         <>
             {posts &&
                 <div>
-                    {Object.values(posts).map(post => (
+                    {Object.values(posts).reverse().map(post => (
                         <div key={post.id}>
                             <div>
                                 <div>{post.title}</div>

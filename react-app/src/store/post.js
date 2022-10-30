@@ -30,6 +30,9 @@ const remove = postId => ({
     type: REMOVE,
     postId
 })
+export const resetPost = () => ({
+    type: RESET
+})
 
 export const getAllPosts = () => async dispatch => {
     const response = await fetch('/api/posts/')
@@ -170,6 +173,8 @@ const postReducer = (state = initialState, action) => {
             delete newState.community[action.postId]
             delete newState.user[action.postId]
             return newState
+        case RESET:
+            return initialState
         default:
             return state
     }
