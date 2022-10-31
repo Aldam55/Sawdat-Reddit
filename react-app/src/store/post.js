@@ -170,9 +170,10 @@ const postReducer = (state = initialState, action) => {
             newState.community[action.post.id] = action.post
             return newState
         case REMOVE:
-            newState = { ...state, community: { ...state.community }, user: { ...state.user } }
+            newState = { ...state, community: { ...state.community }, user: { ...state.user }, allPosts: {...state.allPosts} }
             delete newState.community[action.postId]
             delete newState.user[action.postId]
+            delete newState.allPosts[action.postId]
             return newState
         case RESET:
             return initialState
