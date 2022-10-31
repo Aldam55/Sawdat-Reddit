@@ -165,8 +165,9 @@ const postReducer = (state = initialState, action) => {
             newState.community[action.post.id] = action.post
             return newState
         case UPDATE:
+            console.log("ACTION IN UPDATE POST", action)
             newState = { community: { ...state.community }, user: { ...state.user } }
-            newState.community[action.posts.id] = action.poist
+            newState.community[action.post.id] = action.post
             return newState
         case REMOVE:
             newState = { ...state, community: { ...state.community }, user: { ...state.user } }

@@ -12,11 +12,11 @@ const UpdatePost = () => {
     const { postId } = useParams()
 
     const user = useSelector(state => state.session.user)
-    const community = useSelector(state => state.communties.singleCommunity)
+    const community = useSelector(state => state.communities.singleCommunity)
     const existingPost = useSelector(state => state.posts.community[postId])
     if (!Object.values(community).length) dispatch(getSingleCommunityThunk(existingPost?.community_id))
 
-    const [description, setDescription] = useState('')
+    const [description, setDescription] = useState(existingPost.description ?? '')
     const [validationErrors, setValidationErrors] = useState([])
     const [showErrors, setShowErrors] = useState(false)
 
@@ -75,8 +75,7 @@ const UpdatePost = () => {
                 <textarea
                     type="text"
                     value={description}
-                    onChange={updateDescription}
-                    required />
+                    onChange={updateDescription} />
             </div>
             <button
                 type='submit'>
