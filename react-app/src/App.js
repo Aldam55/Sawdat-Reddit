@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
-import NavBar from './components/NavBar';
+import NavBar from './components/NavBar/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
 import User from './components/User';
@@ -15,6 +15,7 @@ import CreateCommunity from './components/Communities/CreateCommunity';
 import AllPosts from './components/Posts/AllPosts';
 import UpdateCommunity from './components/Communities/UpdateCommunity';
 import CreatePost from './components/Posts/CreatePost';
+import UpdatePost from './components/Posts/UpdatePost';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -70,6 +71,10 @@ function App() {
 
         <ProtectedRoute path='/communities/:communityId/createpost' exact={true}>
           <CreatePost></CreatePost>
+        </ProtectedRoute>
+
+        <ProtectedRoute path='/posts/:postId/edit' exact={true}>
+          <UpdatePost></UpdatePost>
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>
