@@ -139,20 +139,34 @@
 .homepage-communities-container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    /* justify-content: center;
+    align-items: center; */
     width: 310px;
-    border: 1px rgb(204, 204, 204) solid;
+    /* border: 1px rgb(204, 204, 204) solid; */
     border-radius: 4px;
     background-color: white;
 }
 
 .some-communities-background {
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
+    display: flex;
+    align-items: flex-end;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    width: 310px;
     height: 80px;
-    width: 312px;
-    margin: 0px
+    background-size: cover;
+    background-image: url("../../../assets/viewcommunities.png");
+}
+
+.some-communities-text {
+    display: flex;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    height: 20px;
+    margin-left: 20px;
+    margin-bottom: 5px;
+    font-family: "IBM Plex Sans";
 }
 
 .communities-holder {
@@ -168,6 +182,10 @@
     border-bottom: 1px solid #EDEFF1;
 }
 
+.communities-bottom-border {
+    width: 310px;
+}
+
 #newest-communities-link {
     text-decoration: none;
     font-size: 14px;
@@ -180,11 +198,29 @@
     align-items: center;
 }
 
+.newest-community-placeholder {
+    margin-left: 20px;
+    margin-right: 5px;
+    font-size: 14px;
+    color: #1a1a1b;
+    font-weight: 550;
+}
+
+#community-dot {
+    margin-right: 5px;
+}
+
 #newest-community-icon {
     height: 32px;
     width: 32px;
     border-radius: 50%;
     padding-right: 8px;
+}
+
+#newest-community-name {
+    font-size: 14px;
+    color: #1a1a1b;
+    font-weight: 500;
 }
 
 .all-communities-padding {
@@ -219,6 +255,23 @@
     border: 1px rgb(204, 204, 204) solid;
     border-radius: 4px;
     background-color: white;
+    margin-top: 16px;
+}
+
+.create-community-banner {
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    height: 34px;
+    width: 310px;
+    margin-top: -2px;
+    background-size: cover;
+    background-image: url("../../../assets/createcommunity.png");
+}
+
+.create-community-text{
+    font-size: 14px;
+    font-weight: 400;
+    word-wrap: break-word;
 }
 
 #create-community {
@@ -233,6 +286,7 @@
     align-items: center;
     border-radius: 50px;
     background-color: white;
+    margin-top: 12px;
 }
 
 #create-community-button {

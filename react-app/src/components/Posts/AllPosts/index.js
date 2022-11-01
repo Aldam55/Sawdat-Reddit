@@ -72,31 +72,42 @@ const AllPosts = () => {
                     </div>
                     <div className="homepage-community-buttons">
                         <div className="homepage-communities-container">
-                            <img className="some-communities-background" src={viewcommunities} />
+                            <div className="some-communities-background">
+                                <div className="some-communities-text">
+                                    Newest Communities
+                                </div>
+                            </div>
                             <div className='communities-holder'>
                                 {Object.values(communities).reverse().slice(0, 5).map(community => (
                                     <div className="newest-communities">
-                                        <NavLink to={`/communities/${community.id}`} id="newest-communities-link">
-                                            <div className="newest-community-container">
-                                                <img src={`${community.icon_url}`} id='newest-community-icon' onError={iconErrorHandler}/>
-                                                <div>
-                                                    {community.name}
+                                        <div className="communities-bottom-border">
+                                            <NavLink to={`/communities/${community.id}`} id="newest-communities-link">
+                                                <div className="newest-community-container">
+                                                    <div className="newest-community-placeholder">New</div>
+                                                    <span id='community-dot'>•</span>
+                                                    <img src={`${community.icon_url}`} id='newest-community-icon' onError={iconErrorHandler} />
+                                                    <div id='newest-community-names'>
+                                                        {community.name}
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </NavLink>
+                                            </NavLink>
+                                        </div>
                                     </div>
                                 ))}
                             </div>
                             <div className="all-communities-padding">
-                            <NavLink to={`/communities`} id='all-communities'>
-                                <div id='view-all-communities-button'>
-                                    View All
-                                </div>
-                            </NavLink>
+                                <NavLink to={`/communities`} id='all-communities'>
+                                    <div id='view-all-communities-button'>
+                                        View All
+                                    </div>
+                                </NavLink>
                             </div>
                         </div>
                         {user && (
                             <div className='homepage-create-buttons'>
+                                <div className="create-community-banner"></div>
+                                <div></div>
+                                <div className="create-community-text">Your personal Sawdat frontpage. Come here to check in with your favorite communities.</div>
                                 <NavLink to={`/communities/create`} id='create-community'>
                                     <div id='create-community-button'>
                                         Create Community
