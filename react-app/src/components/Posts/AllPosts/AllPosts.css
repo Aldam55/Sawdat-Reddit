@@ -1,0 +1,241 @@
+.home-page-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: #DAE0E6;
+    width: 100%;
+}
+
+.individual-post-container {
+    width: 640px;
+    height: fit-content;
+    /* border: 1px red solid; */
+}
+
+#individual-post {
+    display: flex;
+    border: 1px #DAE0E6 solid;
+    width: 640px;
+    height: fit-content;
+    background-color: white;
+    margin-bottom: 10px;
+    border-radius: 4px;
+}
+
+#post-votes {
+    background-color: #dae0e649;
+    width: 40px;
+}
+
+#post-header {
+    display: flex;
+    margin: 0px 8px 8px;
+    align-items: center;
+    padding-top: 8px;
+}
+
+#post-community-icon {
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    margin-right: 4px
+}
+
+#post-community-name {
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    color: #1c1c1c;
+}
+
+#post-community-name:hover {
+    text-decoration: underline;
+}
+
+#post-dot {
+    font-size: 12px;
+    margin: 0px 4px;
+}
+
+#post-username {
+    font-size: 12px;
+    font-weight: 400;
+    color: #787c7e;
+}
+
+#home-page-post-title {
+    font-size: 18px;
+    font-weight: 600;
+    word-wrap: break-word;
+    margin: 0px 8px;
+    color: #222222;
+}
+
+#home-page-description {
+    font-size: 14px;
+    color: #1c1c1c;
+    margin: 8px 8px 0px;
+}
+
+.post-buttons {
+    padding-left: 4px;
+    padding-right: 8px;
+    display: flex;
+    height: 36px;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 700;
+    color: #878A8C;
+}
+
+#post-comments-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70px;
+    padding: 8px;
+    margin-right: 4px;
+}
+
+#post-comments-button:hover {
+    background-color: #878a8c41;
+}
+
+#edit-post-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #878A8C;
+    height: 36px;
+    width: 70px;
+    margin-right: 4px;
+}
+
+#edit-post-button:hover {
+    background-color: #878a8c41;
+}
+
+#delete-post-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 36px;
+    width: 80px;
+}
+
+#delete-post-button:hover {
+    cursor: pointer;
+    background-color: #878a8c41;
+}
+
+.homepage-community-buttons {
+    margin-left: 24px;
+    position: sticky;
+    height: fit-content;
+    top: 47px;
+}
+
+.homepage-communities-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 310px;
+    border: 1px rgb(204, 204, 204) solid;
+    border-radius: 4px;
+    background-color: white;
+}
+
+.some-communities-background {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    height: 80px;
+    width: 312px;
+    margin: 0px
+}
+
+.communities-holder {
+    width: 312px;
+}
+
+.newest-communities {
+    display: flex;
+    align-items: center;
+    height: 49px;
+    width: 310px;
+    text-decoration: none;
+    border-bottom: 1px solid #EDEFF1;
+}
+
+#newest-communities-link {
+    text-decoration: none;
+    font-size: 14px;
+    color: #1a1a1b;
+    font-weight: 500;
+}
+
+.newest-community-container {
+    display: flex;
+    align-items: center;
+}
+
+#newest-community-icon {
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+    padding-right: 8px;
+}
+
+.all-communities-padding {
+    padding: 12px;
+}
+
+#all-communities {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+    background-color: #0079D3;
+    height: 32px;
+    width: 286px;
+    border-radius: 50px;
+}
+
+#view-all-communities-button {
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.homepage-create-buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 310px;
+    border: 1px rgb(204, 204, 204) solid;
+    border-radius: 4px;
+    background-color: white;
+}
+
+#create-community {
+    text-decoration: none;
+    font-size: 14px;
+    color: #0079D3;
+    border: 1px solid #0079D3;
+    height: 30px;
+    width: 286px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    background-color: white;
+}
+
+#create-community-button {
+    text-decoration: none;
+    font-weight: 700;
+}
