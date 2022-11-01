@@ -142,7 +142,7 @@
     /* justify-content: center;
     align-items: center; */
     width: 310px;
-    /* border: 1px rgb(204, 204, 204) solid; */
+    border: 1px rgb(204, 204, 204) solid;
     border-radius: 4px;
     background-color: white;
 }
@@ -166,7 +166,7 @@
     height: 20px;
     margin-left: 20px;
     margin-bottom: 5px;
-    font-family: "IBM Plex Sans";
+    font-family: "IBMPlexSans";
 }
 
 .communities-holder {
@@ -261,6 +261,7 @@
 .create-community-banner {
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
+    margin-bottom: 12px;
     height: 34px;
     width: 310px;
     margin-top: -2px;
@@ -268,10 +269,14 @@
     background-image: url("../../../assets/createcommunity.png");
 }
 
-.create-community-text{
+.create-community-text {
+    color: #1c1c1c;
     font-size: 14px;
     font-weight: 400;
+    height: 42px;
+    width: 286px;
     word-wrap: break-word;
+    margin-bottom: 16px;
 }
 
 #create-community {
@@ -287,6 +292,7 @@
     border-radius: 50px;
     background-color: white;
     margin-top: 12px;
+    margin-bottom: 12px;
 }
 
 #create-community-button {

@@ -106,7 +106,6 @@ const AllPosts = () => {
                         {user && (
                             <div className='homepage-create-buttons'>
                                 <div className="create-community-banner"></div>
-                                <div></div>
                                 <div className="create-community-text">Your personal Sawdat frontpage. Come here to check in with your favorite communities.</div>
                                 <NavLink to={`/communities/create`} id='create-community'>
                                     <div id='create-community-button'>
