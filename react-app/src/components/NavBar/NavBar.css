@@ -1,6 +1,9 @@
 .header-wrapper {
     display: flex;
     width: 100%;
+    position: sticky;
+    top: 0%;
+    background-color: white;
 }
 
 .navbar-container {

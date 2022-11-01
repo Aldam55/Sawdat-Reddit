@@ -13,12 +13,18 @@
 }
 
 #individual-post {
-    border: 1px blue dashed;
+    display: flex;
+    border: 1px #DAE0E6 solid;
     width: 640px;
     height: fit-content;
     background-color: white;
     margin-bottom: 10px;
-    border-radius: 3px;
+    border-radius: 4px;
+}
+
+#post-votes {
+    background-color: #dae0e649;
+    width: 40px;
 }
 
 #post-header {
@@ -86,7 +92,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100px;
+    width: 70px;
     padding: 8px;
     margin-right: 4px;
 }
@@ -121,4 +127,115 @@
 #delete-post-button:hover {
     cursor: pointer;
     background-color: #878a8c41;
+}
+
+.homepage-community-buttons {
+    margin-left: 24px;
+    position: sticky;
+    height: fit-content;
+    top: 47px;
+}
+
+.homepage-communities-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 310px;
+    border: 1px rgb(204, 204, 204) solid;
+    border-radius: 4px;
+    background-color: white;
+}
+
+.some-communities-background {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    height: 80px;
+    width: 312px;
+    margin: 0px
+}
+
+.communities-holder {
+    width: 312px;
+}
+
+.newest-communities {
+    display: flex;
+    align-items: center;
+    height: 49px;
+    width: 310px;
+    text-decoration: none;
+    border-bottom: 1px solid #EDEFF1;
+}
+
+#newest-communities-link {
+    text-decoration: none;
+    font-size: 14px;
+    color: #1a1a1b;
+    font-weight: 500;
+}
+
+.newest-community-container {
+    display: flex;
+    align-items: center;
+}
+
+#newest-community-icon {
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+    padding-right: 8px;
+}
+
+.all-communities-padding {
+    padding: 12px;
+}
+
+#all-communities {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+    background-color: #0079D3;
+    height: 32px;
+    width: 286px;
+    border-radius: 50px;
+}
+
+#view-all-communities-button {
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.homepage-create-buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 310px;
+    border: 1px rgb(204, 204, 204) solid;
+    border-radius: 4px;
+    background-color: white;
+}
+
+#create-community {
+    text-decoration: none;
+    font-size: 14px;
+    color: #0079D3;
+    border: 1px solid #0079D3;
+    height: 30px;
+    width: 286px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    background-color: white;
+}
+
+#create-community-button {
+    text-decoration: none;
+    font-weight: 700;
 }
