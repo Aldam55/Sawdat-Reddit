@@ -16,7 +16,7 @@ const AllPosts = () => {
     const posts = useSelector(state => state.posts.allPosts)
     const communities = useSelector(state => state.communities.allCommunities)
     const [isLoaded, setIsLoaded] = useState(false)
-    const postsArr = Object?.values(posts)
+    const postsArr = Object.values(posts)
 
     const iconErrorHandler = (e) => {
         e.currentTarget.src = icon
@@ -39,7 +39,7 @@ const AllPosts = () => {
                                 <div>
                                     <div>
                                         <div id='post-header'>
-                                            <img src={post.Community.icon_url} id='post-community-icon'></img>
+                                            <img src={post.Community.icon_url} id='post-community-icon' onError={iconErrorHandler}></img>
                                             <NavLink to={`/communities/${post.Community.id}`} id='post-community-name'>{post.Community.name}</NavLink>
                                             <span id='post-dot'>•</span>
                                             <div id='post-username'>Posted by {post.Owner.username}</div>

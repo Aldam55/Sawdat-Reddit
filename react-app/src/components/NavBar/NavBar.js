@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { NavLink, useHistory } from 'react-router-dom';
 import * as sessionActions from "../../store/session"
+import LoginFormModal from '../auth/Login/LoginModal';
 import logo from '../../assets/logo.png'
 import profile from '../../assets/profile.svg'
 import downarrow from "../../assets/downarrow.svg"

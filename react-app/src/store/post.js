@@ -156,7 +156,8 @@ const postReducer = (state = initialState, action) => {
                 community[post.id] = post
             })
             return {
-                ...state,
+                allPosts: {...state.allPosts},
+                user: {...state.user},
                 community
             }
         case CREATE:
