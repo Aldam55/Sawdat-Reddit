@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from '../auth/LogoutButton';
@@ -7,12 +7,29 @@ import profile from '../../assets/profile.svg'
 import "./NavBar.css"
 
 const NavBar = () => {
+  const [showMenu, setShowMenu] = useState(false)
+
   const user = useSelector(state => state.session.user)
+
+  useEffect(() => {
+    if (!showMenu) return;
+
+    const closeMenu = () => {
+      setShowMenu(false)
+    }
+
+    document.addEventListener('click', closeMenu)
+
+    return () => document.removeEventListener("click", closeMenu)
+  }, [showMenu])
 
   let sessionLinks;
   if (user) {
     sessionLinks = (
       <>
+        <div>
+
+        </div>
         <LogoutButton></LogoutButton>
       </>
     )
