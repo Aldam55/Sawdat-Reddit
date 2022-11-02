@@ -42,7 +42,7 @@ const CommunityPosts = () => {
                                             {deletePostHandler = async () => {
                                                 if (window.confirm('Are you sure you want to delete your post?')) {
                                                     await dispatch(removePost(post.id))
-                                                    history.push(`/`)
+                                                    history.push(`/communities/${post.community_id}`)
                                                 } else {
                                                     history.push(`/`)
                                                 }

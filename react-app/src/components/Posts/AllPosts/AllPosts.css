@@ -218,10 +218,14 @@
     padding-right: 8px;
 }
 
-#newest-community-name {
+#newest-community-names {
     font-size: 14px;
     color: #1a1a1b;
     font-weight: 500;
+    width: 150px;
+    display: inline-block;
+    text-overflow: ellipsis;
+    overflow: clip;
 }
 
 .all-communities-padding {
@@ -294,6 +298,10 @@
     background-color: white;
     margin-top: 12px;
     margin-bottom: 12px;
+}
+
+#create-community:hover {
+    background-color: #0078d313
 }
 
 #create-community-button {

@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from '../auth/LogoutButton';
 import logo from '../../assets/logo.png'
+import profile from '../../assets/profile.svg'
 import "./NavBar.css"
 
 const NavBar = () => {

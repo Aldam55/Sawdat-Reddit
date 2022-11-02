@@ -23,7 +23,7 @@ const SingleCommunity = () => {
     const deleteHandler = async () => {
         if (window.confirm("Are you sure you want to delete your community?")) {
             await dispatch(deleteCommunityThunk(communityId))
-            history.push('/communities')
+            history.push(`/communities`)
         } else {
             history.push(`/communities/${communityId}`)
         }
@@ -50,7 +50,7 @@ const SingleCommunity = () => {
                     <div className="single-community-header">
                         <div className="single-community-header-container">
                             <div className="community-header-content">
-                                <img src={community.icon_url} alt='icon' id="single-community-icon" onError={iconErrorHandler}/>
+                                <img src={community.icon_url} alt='icon' id="single-community-icon" onError={iconErrorHandler} />
                                 <div id='single-community-header-text'>
                                     <h1 id='single-community-title'>
                                         {community.name}
