@@ -29,7 +29,7 @@ const CreatePost = () => {
     useEffect(() => {
         const errors = []
         if (title.length < 5 || title.length > 120) errors.push("Title must be between 5 and 120 characters.")
-        if (description.length > 3000) errors.push("Description must be less than 3000 characters.")
+        if (description.length > 1000) errors.push("Description must be less than 1000 characters.")
         setValidationErrors(errors)
     }, [title, description])
 
