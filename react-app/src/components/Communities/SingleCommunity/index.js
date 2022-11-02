@@ -5,6 +5,7 @@ import { deleteCommunityThunk, getSingleCommunityThunk } from "../../../store/co
 import CommunityPosts from "../../Posts/CommunityPosts";
 import cake from "../../../assets/birthday-cake.png"
 import banner from "../../../assets/sawdat-error-image.jpg"
+import icon from "../../../assets/icon.png"
 import "./SingleCommunity.css"
 
 const SingleCommunity = () => {
@@ -32,6 +33,9 @@ const SingleCommunity = () => {
     const bannerErrorHandler = (e) => {
         e.currentTarget.src = banner
     }
+    const iconErrorHandler = (e) => {
+        e.currentTarget.src = icon
+    }
 
     useEffect(() => {
         dispatch(getSingleCommunityThunk(communityId))
@@ -42,11 +46,11 @@ const SingleCommunity = () => {
         <>
             {community.id &&
                 <div className="single-community-container">
-                    <img className="single-community-banner" src={community.banner_url} alt='banner' onError={bannerErrorHandler}/>
+                    <img className="single-community-banner" src={community.banner_url} alt='banner' onError={bannerErrorHandler} />
                     <div className="single-community-header">
                         <div className="single-community-header-container">
                             <div className="community-header-content">
-                                <img src={community.icon_url} alt='icon' id="single-community-icon" />
+                                <img src={community.icon_url} alt='icon' id="single-community-icon" onError={iconErrorHandler}/>
                                 <div id='single-community-header-text'>
                                     <h1 id='single-community-title'>
                                         {community.name}
@@ -86,11 +90,16 @@ const SingleCommunity = () => {
                                 </div>
                                 <div className="single-communities-padding">
                                     <div id='single-community-create-post'>
-                                        {user && user.id !== community.user_id && (
+                                        {user && (
                                             <>
                                                 <NavLink to={`/communities/${communityId}/createpost`} id='all-communities'>
                                                     Create a Post
                                                 </NavLink>
+                                            </>
+                                        )}
+                                        {!user && (
+                                            <>
+                                                <NavLink to='/login' id='all-communities'>Create a Post</NavLink>
                                             </>
                                         )}
                                     </div>
@@ -100,16 +109,16 @@ const SingleCommunity = () => {
                                 </div>
                                 <div>
                                     <div>
-                                        {/* {user && user.id === community.user_id && ( */}
-                                        <>
-                                            <div>
-                                                <button onClick={updateRedirect} id='edit-community-button'>Edit Community</button>
-                                            </div>
-                                            <div>
-                                                <button onClick={deleteHandler} id='delete-community-button'>Delete Community</button>
-                                            </div>
-                                        </>
-                                        {/* )} */}
+                                        {user && user.id === community.user_id && (
+                                            <>
+                                                <div>
+                                                    <button onClick={updateRedirect} id='edit-community-button'>Edit Community</button>
+                                                </div>
+                                                <div>
+                                                    <button onClick={deleteHandler} id='delete-community-button'>Delete Community</button>
+                                                </div>
+                                            </>
+                                        )}
                                     </div>
                                 </div>
                             </div>
