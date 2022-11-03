@@ -25,7 +25,7 @@ const CommunityPosts = () => {
                 <div className="individual-post-container">
                     {Object.values(posts).reverse().map(post => (
                         <div key={post.id} id='individual-post'>
-                            <div id='post-votes'>votes</div>
+                            <div id='post-votes'></div>
                             <div>
                                 <div>
                                     <div id='post-header'>
@@ -35,7 +35,7 @@ const CommunityPosts = () => {
                                     <div id='home-page-description'>{post.description}</div>
                                 </div>
                                 <div className="post-buttons">
-                                    <div id='post-comments-button'>Comments</div>
+                                    {/* <div id='post-comments-button'>Comments</div> */}
                                     {(user && user.id === post.user_id) && (
                                         <>
                                             <NavLink to={`/posts/${post.id}/edit`} id='edit-post-button'>Edit Post</NavLink>
