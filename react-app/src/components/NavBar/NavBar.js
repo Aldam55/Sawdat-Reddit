@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { NavLink, useHistory } from 'react-router-dom';
+import { Modal } from '../../context/Modal';
 import * as sessionActions from "../../store/session"
+import SignupFormModal from '../auth/Signup/SignUpModal';
+import LoginFormModal from '../auth/Login/LoginModal';
 import logo from '../../assets/logo.png'
 import profile from '../../assets/profile.svg'
 import downarrow from "../../assets/downarrow.svg"
@@ -15,6 +18,8 @@ const NavBar = () => {
 
   const user = useSelector(state => state.session.user)
   const [showMenu, setShowMenu] = useState(false)
+  const [showLoginModal, setShowLoginModal] = useState(false)
+  const [showSignupModal, setShowSignupModal] = useState(false)
 
   const openMenu = () => {
     if (showMenu) return;
@@ -92,17 +97,47 @@ const NavBar = () => {
     sessionLinks = (
       <>
         <div className='navbar-user-button'>
-          <NavLink to='/sign-up' exact={true} id='signup-nav'>
+          {/* SIGNUP BUTTON THAT REDIRECTS TO A NEW FORM PAGE */}
+          {/* <NavLink to='/sign-up' exact={true} id='signup-nav'>
             <div id='signup-button'>
               Sign Up
             </div>
-          </NavLink>
-          <NavLink to='/login' exact={true} id='login-nav'>
+          </NavLink> */}
+
+          <div id='signup-nav'>
+            <div id='signup-button'>
+              <SignupFormModal />
+            </div>
+          </div>
+          {/* LOGIN BUTTON THAT REDIRECTS TO A NEW FORM PAGE */}
+          {/* <NavLink to='/login' exact={true} id='login-nav'>
             <div id='login-button'>
               Log In
             </div>
-          </NavLink>
+          </NavLink> */}
+
+          {/* LOGIN BUTTON THAT OPENS A MODAL */}
+          <div id='login-nav'>
+            <div id='login-button'>
+              <LoginFormModal />
+            </div>
+          </div>
+          {/* LOGIN BUTTON THAT OPENS A MODAL VERSION 2 */}
+          {/* <div id='login-nav' onClick={() => setShowLoginModal(true)}>
+            <div id='login-button'>
+              Login
+            </div>
+          </div> */}
         </div>
+        {/* {showLoginModal && (
+          <div id='login-modal-wrapper'>
+            <Modal onClose={() => setShowLoginModal(false)}>
+              <div>
+                test
+              </div>
+            </Modal>
+          </div>
+        )} */}
       </>
     )
   }

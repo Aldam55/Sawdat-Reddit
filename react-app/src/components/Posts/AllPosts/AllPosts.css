@@ -4,7 +4,7 @@
     justify-content: center;
     background-color: #DAE0E6;
     width: 100%;
-    padding: 24px;
+    padding: 24px 0px;
 }
 
 .individual-post-container {
@@ -26,6 +26,7 @@
 #post-votes {
     background-color: #dae0e649;
     width: 40px;
+    min-width: 40px
 }
 
 #post-header {

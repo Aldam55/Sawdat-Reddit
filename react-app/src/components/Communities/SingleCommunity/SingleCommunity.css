@@ -6,7 +6,7 @@
     width: 100%;
 }
 
-.single-community-banner{
+.single-community-banner {
     height: 128px;
     object-fit: cover;
 }
@@ -204,6 +204,7 @@
 
 #edit-community-button:hover {
     cursor: pointer;
+    background-color: #0078d313
 }
 
 #delete-community-button {

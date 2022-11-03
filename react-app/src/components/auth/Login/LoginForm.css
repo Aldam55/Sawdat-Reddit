@@ -1,0 +1,123 @@
+.button-modal-log-in {
+    color: white;
+    font-size: 14px;
+    background-color: #0079D3;
+    height: 30px;
+    width: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+}
+
+.login-form-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 400px;
+    height: 420px;
+    border-radius: 4px;
+}
+
+.login-form-container {
+    width: 280px;
+}
+
+.login-header {
+    font-size: 20px;
+    font-family: "IBM Plex Sans", Arial, sans-serif;
+    font-weight: 500;
+    color: #1a1a1b;
+    margin-top: 24px;
+}
+
+.login-text {
+    font-size: 12px;
+    font-family: "IBM Plex Sans", Arial, sans-serif;
+    font-weight: 400;
+    color: #1a1a1b;
+    margin-top: 8px;
+}
+
+.shameless-plug {
+    text-decoration: none;
+    color: #0079D3;
+}
+
+.login-form {
+    max-width: 280px;
+    padding-top: 20px;
+}
+
+.login-form-errors {
+    display: flex;
+    justify-content: center;
+    color: red;
+    font-size: 12px;
+    margin-bottom: 20px;
+}
+
+.login-form-username {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 44px;
+    width: 280px;
+    border: 1px solid #dbdbdb;
+    border-radius: 50px;
+    margin: 20px 0px 24px;
+}
+
+.login-form-username-input {
+    width: 250px;
+    border: none;
+}
+
+.login-form-username-input:focus {
+    border: none;
+    outline: none;
+}
+
+.login-form-password {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 44px;
+    width: 280px;
+    border: 1px solid #dbdbdb;
+    border-radius: 50px;
+    margin-bottom: 16px;
+}
+
+.login-form-password-input {
+    width: 250px;
+    border: none;
+}
+
+.login-form-password-input:focus {
+    border: hidden;
+    outline: none;
+}
+
+.login-submit {
+    border-radius: 50px;
+    background-color: #D93A00;
+    height: 40px;
+    width: 280px;
+    border: none;
+    font-family: "IBM Plex San", Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+    padding: 0px 16px;
+    margin-top: 8px;
+}
+
+.login-submit:hover{
+    cursor: pointer;
+    background-color: #d93a00e5;
+}
+
+.demo-user{
+    margin-top: 8px;
+}

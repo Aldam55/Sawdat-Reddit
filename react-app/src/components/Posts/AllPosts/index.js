@@ -16,7 +16,7 @@ const AllPosts = () => {
     const posts = useSelector(state => state.posts.allPosts)
     const communities = useSelector(state => state.communities.allCommunities)
     const [isLoaded, setIsLoaded] = useState(false)
-    const postsArr = Object?.values(posts)
+    const postsArr = Object.values(posts)
 
     const iconErrorHandler = (e) => {
         e.currentTarget.src = icon
@@ -35,11 +35,11 @@ const AllPosts = () => {
                     <div className="individual-post-container">
                         {Object.values(posts).reverse().map(post => (
                             <div key={post.id} id='individual-post'>
-                                <div id='post-votes'>votes</div>
-                                <div>
+                                <div id='post-votes'></div>
+                                <div className="post-container-width">
                                     <div>
                                         <div id='post-header'>
-                                            <img src={post.Community.icon_url} id='post-community-icon'></img>
+                                            <img src={post.Community.icon_url} id='post-community-icon' onError={iconErrorHandler}></img>
                                             <NavLink to={`/communities/${post.Community.id}`} id='post-community-name'>{post.Community.name}</NavLink>
                                             <span id='post-dot'>•</span>
                                             <div id='post-username'>Posted by {post.Owner.username}</div>
@@ -48,7 +48,7 @@ const AllPosts = () => {
                                         <div id='home-page-description'>{post.description}</div>
                                     </div>
                                     <div className="post-buttons">
-                                        <div id='post-comments-button'>Comments</div>
+                                        {/* <div id='post-comments-button'>Comments</div> */}
                                         {(user && user.id === post.user_id) && (
                                             <>
                                                 <NavLink to={`/posts/${post.id}/edit`} id='edit-post-button'>Edit Post</NavLink>
