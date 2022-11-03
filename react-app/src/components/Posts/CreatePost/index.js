@@ -92,6 +92,9 @@ const CreatePost = () => {
                                                 value={title}
                                                 onChange={updateTitle}
                                                 required />
+                                            <div className="create-form-character-count">
+                                                {title.length} / 120
+                                            </div>
                                         </div>
                                     </div>
                                     <div>

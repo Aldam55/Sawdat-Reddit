@@ -85,8 +85,10 @@
 }
 
 .create-form-title-container {
+    display: flex;
     height: 39px;
     width: 708px;
+    position: relative;
 }
 
 .create-form-title-body {
@@ -100,6 +102,16 @@
     font-size: 14px;
     font-weight: 400;
     font-family: "Noto Sans", Arial, sans-serif;
+}
+
+.create-form-character-count{
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .5px;
+    color: #878A8C;
 }
 
 .create-form-title-body:focus {
