@@ -35,8 +35,8 @@ const AllPosts = () => {
                     <div className="individual-post-container">
                         {Object.values(posts).reverse().map(post => (
                             <div key={post.id} id='individual-post'>
-                                <div id='post-votes'>votes</div>
-                                <div>
+                                <div id='post-votes'></div>
+                                <div className="post-container-width">
                                     <div>
                                         <div id='post-header'>
                                             <img src={post.Community.icon_url} id='post-community-icon' onError={iconErrorHandler}></img>
@@ -48,7 +48,7 @@ const AllPosts = () => {
                                         <div id='home-page-description'>{post.description}</div>
                                     </div>
                                     <div className="post-buttons">
-                                        <div id='post-comments-button'>Comments</div>
+                                        {/* <div id='post-comments-button'>Comments</div> */}
                                         {(user && user.id === post.user_id) && (
                                             <>
                                                 <NavLink to={`/posts/${post.id}/edit`} id='edit-post-button'>Edit Post</NavLink>

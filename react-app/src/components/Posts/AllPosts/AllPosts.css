@@ -26,6 +26,7 @@
 #post-votes {
     background-color: #dae0e649;
     width: 40px;
+    min-width: 40px
 }
 
 #post-header {
