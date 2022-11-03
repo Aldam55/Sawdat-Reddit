@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { useHistory, useParams } from "react-router-dom"
 import { createPost } from "../../../store/post"
 import { getSingleCommunityThunk } from "../../../store/community"
+import cake from "../../../assets/birthday-cake.png"
 import "./CreatePost.css"
 
 
@@ -29,7 +30,7 @@ const CreatePost = () => {
     useEffect(() => {
         const errors = []
         if (title.length < 5 || title.length > 120) errors.push("Title must be between 5 and 120 characters.")
-        if (description.length > 1000) errors.push("Description must be less than 1000 characters.")
+        if (description.length > 2000) errors.push("Description must be less than 2000 characters.")
         setValidationErrors(errors)
     }, [title, description])
 
@@ -58,37 +59,91 @@ const CreatePost = () => {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            {showErrors &&
-                <ul className="errors">
-                    {validationErrors.map((e, i) => {
-                        return <div className='create-spot-error-message' key={i}>{e}</ div>
-                    })}
-                </ul>
-            }
-            <div>
-                <input
-                    type="text"
-                    placeholder="Title"
-                    value={title}
-                    onChange={updateTitle}
-                    required />
-                <textarea
-                    type="text"
-                    placeholder="description"
-                    value={description}
-                    onChange={updateDescription} />
+        <div className="create-post-wrapper">
+            <div className="create-post-container">
+                <div className="create-post-form-container">
+                    <div className="create-post-form-content">
+                        <div className="create-post-form-header">Create a Post</div>
+                        <div className="create-post-community-wrapper">
+                            <div className="create-post-community-container">
+                                <div className="create-post-community-content">
+                                    <img src={community.icon_url} alt='icon' id="create-post-community-icon" />
+                                    <div id='create-post-community-name'>{community.name}</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="create-post-form-body">
+                            <form onSubmit={handleSubmit} className='create-post-form'>
+                                {showErrors &&
+                                    <ul className="errors">
+                                        {validationErrors.map((e, i) => {
+                                            return <div className='create-spot-error-message' key={i}>{e}</ div>
+                                        })}
+                                    </ul>
+                                }
+                                <div className="post-form-content">
+                                    <div className="create-form-title-wrapper">
+                                        <div className="create-form-title-container">
+                                            <input
+                                                className="create-form-title-body"
+                                                type="text"
+                                                placeholder="Title (Cannot be edited)"
+                                                value={title}
+                                                onChange={updateTitle}
+                                                required />
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div>
+                                            <textarea
+                                                className="create-form-description-body"
+                                                type="text"
+                                                placeholder="Description (Optional)"
+                                                value={description}
+                                                onChange={updateDescription} />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="create-form-bottom-section">
+                                    <div className="create-form-buttons">
+                                        <button
+                                            type='submit'>
+                                            Post
+                                        </button>
+                                        <button
+                                            type='button'
+                                            onClick={handleCancel}>
+                                            Cancel
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div className="create-post-right">
+                    <div className="create-post-about-container">
+                        <div id="single-community-about-header">
+                            <div id='about-community'>
+                                About community
+                            </div>
+                        </div>
+                        <div id='single-community-about-content'>
+                            <div id='single-community-about-body'>{community.about}</div>
+                        </div>
+                        <div id='single-community-date-container'>
+                            <img src={cake} id="cake-icon" />
+                            <div id='single-community-date'>
+                                Created {new Date(community.created_at).toString().slice(4, 15)}
+                            </div>
+                        </div>
+                        <div id='just-for-center'>
+                            <div id='border-placeholder'></div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <button
-                type='submit'>
-                Post
-            </button>
-            <button
-                type='button'
-                onClick={handleCancel}>
-                Cancel
-            </button>
-        </form>
+        </div>
     )
 }
 
