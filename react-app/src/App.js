@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import LoginForm from './components/auth/Login/LoginForm';
 import LoginFormModal from './components/auth/Login/LoginModal';
-import SignUpForm from './components/auth/SignUpForm';
+import SignUpForm from './components/auth/Signup/SignUpForm';
 import NavBar from './components/NavBar/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
