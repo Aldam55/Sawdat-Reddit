@@ -4,6 +4,7 @@ import { useHistory, useParams } from "react-router-dom"
 import { createPost } from "../../../store/post"
 import { getSingleCommunityThunk } from "../../../store/community"
 import cake from "../../../assets/birthday-cake.png"
+import icon from "../../../assets/icon.png"
 import "./CreatePost.css"
 
 
@@ -105,16 +106,26 @@ const CreatePost = () => {
                                     </div>
                                 </div>
                                 <div className="create-form-bottom-section">
-                                    <div className="create-form-buttons">
-                                        <button
-                                            type='submit'>
-                                            Post
-                                        </button>
-                                        <button
-                                            type='button'
-                                            onClick={handleCancel}>
-                                            Cancel
-                                        </button>
+                                    <div className="create-form-borders"></div>
+                                    <div className="create-form-buttons-container">
+                                        <div className="create-form-buttons">
+                                            <div className="create-post-cancel-container">
+                                                <button
+                                                    className="create-post-cancel"
+                                                    type='button'
+                                                    onClick={handleCancel}>
+                                                    Cancel
+                                                </button>
+                                            </div>
+                                            <div className="create-post-confirm">
+                                                <button
+                                                    className="create-post-button"
+                                                    type='submit'
+                                                    disabled={validationErrors.length}>
+                                                    Post
+                                                </button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </form>
@@ -140,6 +151,19 @@ const CreatePost = () => {
                         <div id='just-for-center'>
                             <div id='border-placeholder'></div>
                         </div>
+                    </div>
+                    <div className="create-post-rules-container">
+                        <div className="create-post-rules-header">
+                            <img src={icon} alt='icon' className="rules-icon" />
+                            Posting to Sawdat
+                        </div>
+                        <ol className="create-post-rules">
+                            <li className="create-post-individual-rule">Remember the users</li>
+                            <li className="create-post-individual-rule">Treat others how you want to be treated</li>
+                            <li className="create-post-individual-rule">Don't steal other people's code</li>
+                            <li className="create-post-individual-rule">Remove default styling</li>
+                            <li className="create-post-individual-rule">Please remember to FAFO</li>
+                        </ol>
                     </div>
                 </div>
             </div>
