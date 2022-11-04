@@ -1,0 +1,126 @@
+.create-community-container {
+    display: flex;
+    justify-content: center;
+    width: 1200px;
+    padding: 20px 24px;
+    margin: 0px 328px;
+}
+
+.create-community-form-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.create-community-form-header {
+    font-size: 18px;
+    font-weight: 500;
+    font-family: "IBM Plex Sans", Arial, sans-serif;
+    color: #1c1c1c;
+    border-bottom: 1px solid #EDEFF1;
+    padding: 4px;
+    margin: 16px 0px;
+    width: 732px;
+    height: 34px;
+}
+
+.create-community-form-body {
+    height: 600px;
+    width: 740px;
+    background-color: white;
+    border: 1px solid #dbdbdb;
+    border-radius: 4px;
+}
+
+.create-community-form {
+    padding-top: 24px;
+}
+
+.community-form-content {
+    font-family: "IBM Plex Sans", Arial, sans-serif;
+    margin: 16px;
+}
+
+.create-community-name-wrapper {
+    height: 39px;
+    width: 708px;
+    margin-bottom: 8px;
+}
+
+.create-community-name-container {
+    display: flex;
+    height: 39px;
+    width: 708px;
+    position: relative;
+}
+
+.create-community-name-body {
+    height: 21px;
+    width: 622px;
+    padding: 8px 68px 8px 16px;
+    border: 1px solid rgb(237, 239, 241);
+    border-radius: 4px;
+    overflow-x: hidden;
+    overflow-wrap: break-word;
+    font-size: 14px;
+    font-weight: 400;
+    font-family: "Noto Sans", Arial, sans-serif;
+}
+
+.create-community-name-body:focus {
+    outline: 1px solid;
+}
+
+.create-community-about-wrapper {
+    position: relative
+}
+
+.create-community-about-body {
+    height: 140px;
+    width: 674px;
+    padding: 10px 16px 8px;
+    border: 1px solid rgb(237, 239, 241);
+    border-radius: 4px;
+    background: white;
+    font-size: 14px;
+    font-weight: 400;
+    font-family: "Noto Sans", Arial, sans-serif;
+    resize: none;
+}
+
+.create-community-about-body:focus{
+    outline: 1px solid;
+}
+
+.create-community-banner-body{
+    height: 21px;
+    width: 622px;
+    padding: 8px 68px 8px 16px;
+    border: 1px solid rgb(237, 239, 241);
+    border-radius: 4px;
+    overflow-x: hidden;
+    overflow-wrap: break-word;
+    font-size: 14px;
+    font-weight: 400;
+    font-family: "Noto Sans", Arial, sans-serif;
+}
+
+.create-community-banner-body:focus{
+    outline: 1px solid;
+}
+
+.create-community-icon-body{
+    height: 21px;
+    width: 622px;
+    padding: 8px 68px 8px 16px;
+    border: 1px solid rgb(237, 239, 241);
+    border-radius: 4px;
+    overflow-x: hidden;
+    overflow-wrap: break-word;
+    font-size: 14px;
+    font-weight: 400;
+    font-family: "Noto Sans", Arial, sans-serif;
+}
+
+.create-community-icon-body:focus {
+    outline: 1px solid;
+}
