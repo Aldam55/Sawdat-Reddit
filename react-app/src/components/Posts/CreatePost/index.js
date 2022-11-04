@@ -173,7 +173,7 @@ const CreatePost = () => {
                             <li className="create-post-individual-rule">Treat others how you want to be treated</li>
                             <li className="create-post-individual-rule">Don't steal other people's code</li>
                             <li className="create-post-individual-rule">Remove default styling</li>
-                            <li className="create-post-individual-rule">Test for validation errors</li>
+                            <li className="create-post-individual-rule">Chase progress, not perfection</li>
                         </ol>
                     </div>
                 </div>

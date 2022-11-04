@@ -1,0 +1,11 @@
+.edit-form-title {
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 600;
+    font-family: "IBM Plex Sans", Arial, sans-serif;
+    columns: #1a1a1b;
+    word-break: break-word;
+    padding-bottom: 12px;
+    padding-left: 12px;
+}
