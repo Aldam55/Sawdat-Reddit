@@ -35,6 +35,10 @@ const CreatePost = () => {
         setValidationErrors(errors)
     }, [title, description])
 
+    const iconErrorHandler = (e) => {
+        e.currentTarget.src = icon
+    }
+
     const handleSubmit = async (e) => {
         e.preventDefault()
         setShowErrors(true)
@@ -59,6 +63,7 @@ const CreatePost = () => {
         history.push(`/communities/${communityId}`)
     }
 
+
     return (
         <div className="create-post-wrapper">
             <div className="create-post-container">
@@ -68,7 +73,7 @@ const CreatePost = () => {
                         <div className="create-post-community-wrapper">
                             <div className="create-post-community-container">
                                 <div className="create-post-community-content">
-                                    <img src={community.icon_url} alt='icon' id="create-post-community-icon" />
+                                    <img src={community.icon_url} alt='icon' id="create-post-community-icon" onError={iconErrorHandler} />
                                     <div id='create-post-community-name'>{community.name}</div>
                                 </div>
                             </div>
@@ -97,8 +102,8 @@ const CreatePost = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    <div>
-                                        <div>
+                                    <div className="create-form-description-wrapper">
+                                        <div className="create-form-description-container">
                                             <textarea
                                                 className="create-form-description-body"
                                                 type="text"
@@ -106,6 +111,9 @@ const CreatePost = () => {
                                                 value={description}
                                                 onChange={updateDescription} />
                                         </div>
+                                            <div className="create-form-description-count">
+                                                {description.length} / 2000
+                                            </div>
                                     </div>
                                 </div>
                                 <div className="create-form-bottom-section">
@@ -139,7 +147,7 @@ const CreatePost = () => {
                     <div className="create-post-about-container">
                         <div id="single-community-about-header">
                             <div id='about-community'>
-                                About community
+                                About {community.name}
                             </div>
                         </div>
                         <div id='single-community-about-content'>
@@ -165,7 +173,7 @@ const CreatePost = () => {
                             <li className="create-post-individual-rule">Treat others how you want to be treated</li>
                             <li className="create-post-individual-rule">Don't steal other people's code</li>
                             <li className="create-post-individual-rule">Remove default styling</li>
-                            <li className="create-post-individual-rule">Please remember to FAFO</li>
+                            <li className="create-post-individual-rule">Test for validation errors</li>
                         </ol>
                     </div>
                 </div>
