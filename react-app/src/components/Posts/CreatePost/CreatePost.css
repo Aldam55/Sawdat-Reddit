@@ -1,7 +1,7 @@
 .create-post-container {
     display: flex;
     justify-content: center;
-    width: 1200px;
+    /* width: 1200px; */
     padding: 20px 24px;
     margin: 0px 328px;
 }
@@ -230,7 +230,7 @@
     font-size: 14px;
     font-family: "Noto Sans", Arial, sans-serif;
     font-weight: 700;
-    height: 33px;
+    height: 34px;
     width: 63px;
     border: 1px solid white;
     color: white;
