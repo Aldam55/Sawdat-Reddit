@@ -113,7 +113,7 @@
     text-decoration: none;
     color: #878A8C;
     height: 36px;
-    width: 70px;
+    width: 80px;
     margin-right: 4px;
 }
 
@@ -126,7 +126,7 @@
     align-items: center;
     justify-content: center;
     height: 36px;
-    width: 80px;
+    width: 90px;
 }
 
 #delete-post-button:hover {
