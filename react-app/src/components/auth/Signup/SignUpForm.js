@@ -18,7 +18,7 @@ const SignUpForm = () => {
     e.preventDefault();
     setShowErrors(true)
     if (password === repeatPassword) {
-      if(!validationErrors.length){
+      if (!validationErrors.length) {
         const data = await dispatch(signUp(username, email, password));
         console.log('----data in signup form----', data)
         if (data) {
@@ -88,7 +88,7 @@ const SignUpForm = () => {
           <div className='login-form-username'>
             <input
               className='login-form-username-input'
-              type='text'
+              type='email'
               name='email'
               placeholder='Email'
               onChange={updateEmail}
