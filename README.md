@@ -32,6 +32,7 @@ Sawdat is a fullstack web application where users can communities that share sim
 
 #### Signup/Login:
 - Users can sign up and login with valid credentials, or log in as a demo user.
+
 ![image](https://user-images.githubusercontent.com/106426283/200191926-e1d3f6bc-cce4-45c3-aa3c-fe849e5eef8c.png)
 ![image](https://user-images.githubusercontent.com/106426283/200191931-735b7049-3917-450b-9e47-262e60d77e87.png)
 
