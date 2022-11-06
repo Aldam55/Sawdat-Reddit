@@ -24,4 +24,4 @@ Sawdat is a fullstack web application where users can communities that share sim
 - CSS3, HTML5, Heroku
 
 ## 🌊 Splash Page
-![image](https://user-images.githubusercontent.com/106426283/200191148-b9f0b5cf-0896-42d8-a4e5-54c360e7b635.png)
+![image](https://user-images.githubusercontent.com/106426283/200191181-7984d658-3336-480d-b93e-65bace5347d1.png)
