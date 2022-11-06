@@ -2,6 +2,8 @@ import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { NavLink, useParams, useHistory } from "react-router-dom"
 import { getCommunityPosts, createPost, removePost } from "../../../store/post"
+import trashcan from "../../../assets/trashcan.svg"
+import editicon from "../../../assets/edit.svg"
 import "./CommunityPosts.css"
 
 const CommunityPosts = () => {
@@ -38,7 +40,10 @@ const CommunityPosts = () => {
                                     {/* <div id='post-comments-button'>Comments</div> */}
                                     {(user && user.id === post.user_id) && (
                                         <>
-                                            <NavLink to={`/posts/${post.id}/edit`} id='edit-post-button'>Edit Post</NavLink>
+                                            <NavLink to={`/posts/${post.id}/edit`} id='edit-post-button'>
+                                                <img src={editicon} alt='edit' className='small-post-button'/>
+                                                Edit Post
+                                                </NavLink>
                                             {deletePostHandler = async () => {
                                                 if (window.confirm('Are you sure you want to delete your post?')) {
                                                     await dispatch(removePost(post.id))
@@ -48,6 +53,7 @@ const CommunityPosts = () => {
                                                 }
                                             }}
                                             <div onClick={deletePostHandler} id='delete-post-button'>
+                                                <img src={trashcan} alt='delete' className='small-post-button'/>
                                                 Delete Post
                                             </div>
                                         </>

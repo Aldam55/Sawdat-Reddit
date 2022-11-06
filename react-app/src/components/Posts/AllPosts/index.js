@@ -5,6 +5,8 @@ import { getAllCommunitiesThunk, createCommunityThunk } from "../../../store/com
 import { createPost, getAllPosts, removePost } from "../../../store/post"
 import viewcommunities from "../../../assets/viewcommunities.png"
 import icon from "../../../assets/icon.png"
+import trashcan from "../../../assets/trashcan.svg"
+import editicon from "../../../assets/edit.svg"
 import "./AllPosts.css"
 
 const AllPosts = () => {
@@ -51,7 +53,9 @@ const AllPosts = () => {
                                         {/* <div id='post-comments-button'>Comments</div> */}
                                         {(user && user.id === post.user_id) && (
                                             <>
-                                                <NavLink to={`/posts/${post.id}/edit`} id='edit-post-button'>Edit Post</NavLink>
+                                                <NavLink to={`/posts/${post.id}/edit`} id='edit-post-button'>
+                                                    <img src={editicon} alt='edit' className='small-post-button' />
+                                                    Edit Post</NavLink>
                                                 {deletePostHandler = async () => {
                                                     if (window.confirm('Are you sure you want to delete your post?')) {
                                                         await dispatch(removePost(post.id))
@@ -61,6 +65,7 @@ const AllPosts = () => {
                                                     }
                                                 }}
                                                 <div onClick={deletePostHandler} id='delete-post-button'>
+                                                    <img src={trashcan} alt='delete' className='small-post-button' />
                                                     Delete Post
                                                 </div>
                                             </>
