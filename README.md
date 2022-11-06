@@ -134,3 +134,6 @@ This runs a predefined command specified in the "start" property of a package's 
 "start": "react-scripts start"
 ```
 DO NOT paste this anywhere. The code above is already provided in our package.json file!
+
+# 📱 Contact
+[Linkedin](https://www.linkedin.com/in/alexander-dam-a45b8821a/)
