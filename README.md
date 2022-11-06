@@ -22,3 +22,6 @@ Sawdat is a fullstack web application where users can communities that share sim
 - Python, Flask, JavaScript, React
 - Redux, Postgres, Docker, SQLite
 - CSS3, HTML5, Heroku
+
+## 🌊 Splash Page
+![image](https://user-images.githubusercontent.com/106426283/200191148-b9f0b5cf-0896-42d8-a4e5-54c360e7b635.png)
