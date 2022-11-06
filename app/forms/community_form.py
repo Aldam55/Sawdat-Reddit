@@ -6,9 +6,9 @@ from wtforms.validators import DataRequired, ValidationError
 
 def valid_name(form, field):
     name = field.data
-    if len(name) < 5 or len(name) > 40:
+    if len(name) < 5 or len(name) > 25:
         raise ValidationError(
-            "Community name must be between 5 and 40 characters.")
+            "Community name must be between 5 and 25 characters.")
 
 def valid_about(form, field):
     about = field.data
