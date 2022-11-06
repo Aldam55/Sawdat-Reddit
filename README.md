@@ -36,3 +36,16 @@ Sawdat is a fullstack web application where users can communities that share sim
 ![image](https://user-images.githubusercontent.com/106426283/200191926-e1d3f6bc-cce4-45c3-aa3c-fe849e5eef8c.png)
 ![image](https://user-images.githubusercontent.com/106426283/200191931-735b7049-3917-450b-9e47-262e60d77e87.png)
 
+
+
+### Communities
+
+#### Owner of Community:
+- Edit Community banner, icon, and description.
+- Delete Community.
+
+#### User:
+- Create a community.
+- Navigate to an individual community's page.
+
+![image](https://user-images.githubusercontent.com/106426283/200192399-4b7b67f1-172b-4e6e-a0f7-bd860ad8f3bf.png)
