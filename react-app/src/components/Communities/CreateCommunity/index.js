@@ -111,7 +111,7 @@ const CreateCommunity = () => {
                                             <input
                                                 className="create-community-banner-body"
                                                 type="text"
-                                                placeholder="Banner ImgUrl"
+                                                placeholder="JPG/JPEG/PNG"
                                                 value={bannerUrl}
                                                 onChange={updateBannerUrl} />
                                         </div>
@@ -122,7 +122,7 @@ const CreateCommunity = () => {
                                             <input
                                                 className="create-community-icon-body"
                                                 type="text"
-                                                placeholder="Icon ImgUrl"
+                                                placeholder="JPG/JPEG/PNG"
                                                 value={iconUrl}
                                                 onChange={updateIconUrl}
                                                 required />

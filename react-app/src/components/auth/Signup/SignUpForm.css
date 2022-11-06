@@ -29,6 +29,10 @@
     margin-bottom: 20px;
 }
 
+.signup-errors-test {
+    padding-left: 20px;
+}
+
 .signup-form {
     max-width: 280px;
     padding-top: 40px;
