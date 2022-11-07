@@ -37,7 +37,7 @@ const UpdatePost = () => {
 
     useEffect(() => {
         const errors = []
-        if (description.length > 2000) errors.push("Description must be less than 2000 characters.")
+        if (description.length > 2000 || (description.length && !description.trim().length)) errors.push("Description must be less than 2000 characters.")
         setValidationErrors(errors)
     }, [description])
 
