@@ -55,6 +55,18 @@ export const getSingleCommunityThunk = (communityId) => async dispatch => {
     return
 }
 
+export const getUserCommunityThunk = () => async (dispatch) => {
+    const response = await fetch("/api/communities/current")
+
+    if (response.ok) {
+        const communityData = await response.json();
+        dispatch(loadAll(communityData))
+        return communityData
+    } else {
+        console.log("---- CURRENT USER COMMUNITY THUNK ERROR ----")
+    }
+}
+
 export const createCommunityThunk = (community) => async dispatch => {
     const response = await fetch('/api/communities/', {
         method: 'POST',
