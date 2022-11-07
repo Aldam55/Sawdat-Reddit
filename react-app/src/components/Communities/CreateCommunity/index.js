@@ -97,6 +97,7 @@ const CreateCommunity = () => {
                                                 className="create-community-about-body"
                                                 type="text"
                                                 placeholder="The Circus is a community made by programmers, for programmers. The goal is to answer any coding related questions with the hopes that all members of the Circus will find sucessful jobs in the tech industry."
+                                                maxLength={200}
                                                 value={about}
                                                 onChange={updateAbout}
                                                 required />
