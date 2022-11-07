@@ -106,6 +106,7 @@ const UpdatePost = () => {
                                                 className="create-form-description-body"
                                                 type="text"
                                                 placeholder="Description (Optional)"
+                                                maxLength={2000}
                                                 value={description}
                                                 onChange={updateDescription} />
                                         </div>
