@@ -1,6 +1,7 @@
 const LOAD_ALL = "posts/LOAD_ALL"
 const LOAD_ONE = "posts/LOAD_ONE"
 const LOAD_COMMUNITY_POSTS = "posts/LOAD_COMMUNITY_POSTS"
+const LOAD_USER = "posts/LOAD_USER"
 const CREATE = "posts/CREATE"
 const UPDATE = "posts/UPDATE"
 const REMOVE = "posts/REMOVE"
@@ -16,6 +17,10 @@ const loadOne = post => ({
 })
 const loadCommunityPosts = posts => ({
     type: LOAD_COMMUNITY_POSTS,
+    posts
+})
+const loadUser = (posts) => ({
+    type: LOAD_USER,
     posts
 })
 const create = post => ({
@@ -58,6 +63,18 @@ export const getCommunityPosts = (communityId) => async dispatch => {
         console.log("----GET COMMUNITY POSTS THUNK ERROR----")
     }
     return
+}
+
+export const getUserPosts = () => async dispatch => {
+    const response = await fetch("/api/posts/current")
+
+    if (response.ok) {
+        const posts = await response.json()
+        dispatch(loadUser(posts))
+        return posts
+    } else {
+        console.log("----GET USER POSTS THUNK ERROR----")
+    }
 }
 
 export const getSinglePost = (postId) => async dispatch => {
@@ -156,9 +173,17 @@ const postReducer = (state = initialState, action) => {
                 community[post.id] = post
             })
             return {
-                allPosts: {...state.allPosts},
-                user: {...state.user},
+                allPosts: { ...state.allPosts },
+                user: { ...state.user },
                 community
+            }
+        case LOAD_USER:
+            action.posts.posts.forEach(post => {
+                user[post.id] = post
+            })
+            return {
+                ...state,
+                user
             }
         case CREATE:
             console.log("ACTION IN CREATE POST", action)
@@ -171,7 +196,7 @@ const postReducer = (state = initialState, action) => {
             newState.community[action.post.id] = action.post
             return newState
         case REMOVE:
-            newState = { ...state, community: { ...state.community }, user: { ...state.user }, allPosts: {...state.allPosts} }
+            newState = { ...state, community: { ...state.community }, user: { ...state.user }, allPosts: { ...state.allPosts } }
             delete newState.community[action.postId]
             delete newState.user[action.postId]
             delete newState.allPosts[action.postId]

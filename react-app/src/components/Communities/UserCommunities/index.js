@@ -4,7 +4,6 @@ import { NavLink, useHistory } from "react-router-dom"
 import { getUserCommunityThunk } from "../../../store/community"
 import icon from "../../../assets/icon.png"
 import "./UserCommunities.css"
-import { unstable_renderSubtreeIntoContainer } from "react-dom"
 
 const UserCommunities = () => {
     const dispatch = useDispatch()
