@@ -1,6 +1,7 @@
 from crypt import methods
 from flask import Blueprint, request, jsonify
 from app.forms.post_form import PostForm
+from app.forms.comment_form import CommentForm
 from app.models import Post, User, db, Comment, Community
 from flask_login import current_user, login_required
 
@@ -115,3 +116,28 @@ def get_comment_by_post(id):
 
         comments_lst.append(comment_dict)
     return jsonify(comments_lst)
+
+# CREATE A COMMENT FOR A POST BY ID
+@post_routes.route("/<int:id>/comments", methods=["POST"])
+@login_required
+def create_comment(id):
+    post = Post.query.get(id)
+
+    if not post:
+        return {"message": "Post couldn't be found.", "statusCode": 404}
+
+    form = CommentForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        comment = Comment(
+            user_id = current_user.id,
+            post_id = id,
+            comment_id = form.comment_id.data,
+            comment_body = form.comment_body.data
+        )
+
+        db.session.add(comment)
+        db.session.commit()
+
+        return comment.to_dict()
+    return {"errors": validation_form_errors(form.errors), "statusCode": 404}
