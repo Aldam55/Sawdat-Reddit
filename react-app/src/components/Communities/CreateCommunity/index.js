@@ -24,8 +24,8 @@ const CreateCommunity = () => {
 
     useEffect(() => {
         const errors = []
-        if (name.length < 5 || name.length > 25) errors.push("Community name must be between 5 and 25 characters.")
-        if (about.length < 5 || about.length > 200) errors.push("About must be between 5 and 200 characters")
+        if (name.length < 5 || name.length > 25 || !name.trim().length) errors.push("Community name must be between 5 and 25 characters.")
+        if (about.length < 5 || about.length > 200 || !about.trim().length) errors.push("About must be between 5 and 200 characters")
         if (bannerUrl.length && !bannerUrl.match(/\.(jpg|jpeg|png|gif)$/)) errors.push("Banner must be a valid image(jpg/jpeg/png).")
         if (!iconUrl.match(/\.(jpg|jpeg|png|gif)$/)) errors.push("Icon must be a valid image(jpg/jpeg/png).")
         setValidationErrors(errors)
