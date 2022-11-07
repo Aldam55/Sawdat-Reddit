@@ -2,7 +2,7 @@
 
 Sawdat is a fullstack web application where users can visit or create communities about any topic and make posts to interact with other users. Inspired by [Reddit](https://www.reddit.com/)
 
-**Live site: [Sawdat](https://sawdat.herokuapp.com/)
+**Live site: [Sawdat](https://sawdat.herokuapp.com/)**
 
 # 📍 Wiki Links
 - [Database Schema](https://github.com/Aldam55/Sawdat-Reddit/wiki/Database-Schema)
