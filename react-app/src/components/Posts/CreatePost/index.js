@@ -30,8 +30,8 @@ const CreatePost = () => {
 
     useEffect(() => {
         const errors = []
-        if (title.length < 5 || title.length > 120) errors.push("Title must be between 5 and 120 characters.")
-        if (description.length > 2000) errors.push("Description must be less than 2000 characters.")
+        if (title.length < 5 || title.length > 120 || !title.trim().length) errors.push("Title must be between 5 and 120 characters.")
+        if (description.length > 2000 || (description.length && !description.trim().length)) errors.push("Description must be less than 2000 characters.")
         setValidationErrors(errors)
     }, [title, description])
 
@@ -113,9 +113,9 @@ const CreatePost = () => {
                                                 value={description}
                                                 onChange={updateDescription} />
                                         </div>
-                                            <div className="create-form-description-count">
-                                                {description.length} / 2000
-                                            </div>
+                                        <div className="create-form-description-count">
+                                            {description.length} / 2000
+                                        </div>
                                     </div>
                                 </div>
                                 <div className="create-form-bottom-section">
