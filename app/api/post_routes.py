@@ -182,3 +182,19 @@ def create_vote(id):
 
         return vote.to_dict()
     return {"errors": validation_form_errors(form.errors), "statusCode": 404}
+
+
+# DELETE A VOTE TO A POST BY ID
+@post_routes.route("/<int:id>/votes", methods=["DELETE"])
+@login_required
+def delete_vote(id):
+    vote = Vote.query.filter(
+        Vote.post_id == id and Vote.user_id == current_user.id).one()
+
+    if not vote:
+        return {"message": "Vote couldn't be found", "statusCode": 404}
+
+    db.session.delete(vote)
+    db.session.commit()
+
+    return {"message": "Successfully delete", "statusCode": 200}
