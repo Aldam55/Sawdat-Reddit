@@ -20,6 +20,8 @@ class Post(db.Model):
     communities = db.relationship("Community", back_populates="posts")
     comments = db.relationship(
         "Comment", back_populates="posts", cascade="all, delete")
+    votes = db.relationship(
+        "Vote", back_populates="posts", cascade="all, delete")
 
     def to_dict(self):
         return {

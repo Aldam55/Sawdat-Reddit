@@ -168,7 +168,6 @@ const postReducer = (state = initialState, action) => {
             newState.community[action.post.id] = action.post
             return newState
         case LOAD_COMMUNITY_POSTS:
-            console.log("POSTS IN LOAD COMMUNITY POSTS", action.posts)
             action.posts.forEach(post => {
                 community[post.id] = post
             })

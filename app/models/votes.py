@@ -9,6 +9,9 @@ class Vote(db.Model):
     post_id = db.Column(db.Integer, db.ForeignKey("posts.id"), nullable=False)
     vote = db.Column(db.Integer, nullable=False)
 
+    posts = db.relationship("Post", back_populates="votes")
+    user = db.relationship("User", back_populates="votes")
+
     def to_dict(self):
         return {
             "id": self.id,
