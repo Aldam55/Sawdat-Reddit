@@ -29,9 +29,12 @@ def get_all_posts():
         community = (Community.query.filter(
             Community.id == post.community_id).one()).to_dict()
         owner = (User.query.filter(User.id == post.user_id).one()).to_dict()
+        votes = Vote.query.filter(Vote.post_id == post.id)
+        print("\n\n\n\n\n\n\n\n\n\n\n\n\n", votes)
         post_dict = post.to_dict()
         post_dict["Community"] = community
         post_dict["Owner"] = owner
+        post_dict["Votes"] = sum([vote.vote for vote in votes])
         post_lst.append(post_dict)
 
     return {"posts": [post for post in post_lst]}

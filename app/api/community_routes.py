@@ -1,7 +1,7 @@
 from crypt import methods
 from flask import Blueprint, request, jsonify
 from flask_login import current_user, login_required
-from app.models import Community, Post, User, db
+from app.models import Community, Post, User, db, Vote
 from app.forms.community_form import CommunityForm
 from app.forms.post_form import PostForm
 
@@ -30,6 +30,7 @@ def get_all_communities():
         community_dict["Owner"] = owner
         communities_lst.append(community_dict)
     return {"communities": [community for community in communities_lst]}
+    # return {"communities": communities_lst}
 
 
 # GET COMMUNITIES OWNED BY CURRENT USER
@@ -48,7 +49,7 @@ def get_community_by_id(id):
     community = Community.query.get(id)
 
     if not community:
-        return {"message": "Community coulnd't be found", "statusCode": 404}
+        return {"message": "Community couldn't be found", "statusCode": 404}
 
     community_dict = community.to_dict()
     owner = (User.query.filter(User.id == community.user_id).one()).to_dict()
