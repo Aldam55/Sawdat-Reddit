@@ -37,7 +37,7 @@ const CommunityPosts = () => {
                                     <div id='home-page-description'>{post.description}</div>
                                 </div>
                                 <div className="post-buttons">
-                                    {/* <div id='post-comments-button'>Comments</div> */}
+                                    <div id='post-comments-button'>Comments</div>
                                     {(user && user.id === post.user_id) && (
                                         <>
                                             <NavLink to={`/posts/${post.id}/edit`} id='edit-post-button'>

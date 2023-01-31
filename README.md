@@ -1,8 +1,8 @@
 ![logo](https://user-images.githubusercontent.com/106426283/200190118-1975b3bd-d313-404c-8e4c-f3cfd7728eba.png)
 
-Sawdat is a fullstack web application where users can communities that share similar interests and make posts to interact with other users. Inspired by [Reddit](https://www.reddit.com/)
+Sawdat is a fullstack web application where users can visit or create communities about any topic and make posts to interact with other users. Inspired by [Reddit](https://www.reddit.com/)
 
-**Live site: [Sawdat](https://sawdat.herokuapp.com/)
+**Live site: [Sawdat](https://sawdat.herokuapp.com/)**
 
 # 📍 Wiki Links
 - [Database Schema](https://github.com/Aldam55/Sawdat-Reddit/wiki/Database-Schema)
@@ -66,7 +66,14 @@ Sawdat is a fullstack web application where users can communities that share sim
 
 ![image](https://user-images.githubusercontent.com/106426283/200193252-8cb78177-164a-4848-9c60-16d2de1458af.png)
 ![image](https://user-images.githubusercontent.com/106426283/200193255-7d4cd1ec-4682-4f9c-94d8-4b25f2b99a87.png)
-![image](https://user-images.githubusercontent.com/106426283/200193258-65b428b8-f087-4424-a8b3-8a319ae62ed2.png)
+![image](https://user-images.githubusercontent.com/106426283/200193258-65b428b8-f087-4424-a8b3-8a319ae62ed2.png
+
+
+### 🚧 Future Goals
+- Allow users to join communities
+- Add upvote and downvote feature
+- Add comments
+- Add search feature
 
 
 # ▶️ Get Started
