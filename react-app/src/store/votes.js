@@ -1,6 +1,7 @@
 const ADD_ONE = "votes/ADD_ONE"
 const MINUS_ONE = "votes/MINUS_ONE"
-const LOAD_ALL = "votes/LOAD_ALL"
+const LOAD_POST_VOTES = "votes/LOAD_POST_VOTES"
+const LOAD_ALL_VOTES = "votes/LOAD_ALL_VOTES"
 
 const addOne = vote => ({
     type: ADD_ONE,
@@ -12,6 +13,10 @@ const minusOne = vote => ({
 })
 const loadPostVotes = votes => ({
     type: LOAD_POST_VOTES,
+    votes
+})
+const loadAllVotes = votes => ({
+    type: LOAD_ALL_VOTES,
     votes
 })
 
@@ -54,16 +59,26 @@ export const minusOneVote = (vote, postId) => async dispatch => {
     return
 }
 
-export const getAllVotes = () => async dispatch => {
-    const response = await fetch('')
+export const getPostVotes = (postId) => async dispatch => {
+    const response = await fetch(`/api/posts/${postId}/votes`)
+
+    if (response.ok) {
+        const votes = await response.json()
+        dispatch(loadPostVotes(votes))
+        return votes
+    } else {
+        console.log("----GET POST VOTES THUNK ERROR----")
+    }
+    return
 }
 
 const initialState = {
-
+    postVotes: {}
 }
 
 const voteReducer = (state = initialState, action) => {
     let newState;
+    let postVotes = {};
     switch (action.type) {
         case ADD_ONE:
             return {
@@ -74,6 +89,14 @@ const voteReducer = (state = initialState, action) => {
             return {
                 ...state,
                 [action.vote.id]: action.vote
+            }
+        case LOAD_POST_VOTES:
+            action.votes.forEach(vote => {
+                postVotes[vote.id] = vote
+            })
+            return {
+                ...state,
+                postVotes
             }
         default:
             return state

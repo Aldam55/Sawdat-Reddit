@@ -4,12 +4,14 @@ import session from './session'
 import communityReducer from './community';
 import postReducer from './post';
 import commentsReducer from './comments';
+import voteReducer from './votes';
 
 const rootReducer = combineReducers({
   session,
   communities: communityReducer,
   posts: postReducer,
-  comments: commentsReducer
+  comments: commentsReducer,
+  votes: voteReducer
 });
 
 

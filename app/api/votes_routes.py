@@ -15,8 +15,27 @@ def validation_form_errors(validation_errors):
 
 vote_routes = Blueprint("votes", __name__)
 
+# GET ALL VOTES
+
+
+@vote_routes.route("/", methods=["GET"])
+def get_all_votes():
+    votes = Vote.query.all()
+    votes_lst = []
+
+    for vote in votes:
+        post = (Post.query.filter(Post.id == vote.post_id).one()).to_dict()
+        owner = (User.query.filter(User.id == vote.user_id).one()).to_dict()
+        vote_dict = vote.to_dict()
+        vote_dict["Post"] = post
+        vote_dict["Owner"] = owner
+        votes_lst.append(vote_dict)
+
+    return {"votes": [vote for vote in votes_lst]}
 
 # DELETE VOTE
+
+
 @vote_routes.route("/<int:id>", methods=["DELETE"])
 @login_required
 def delete_vote(id):
