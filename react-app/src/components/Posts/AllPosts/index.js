@@ -20,6 +20,7 @@ const AllPosts = () => {
     const communities = useSelector(state => state.communities.allCommunities)
     const [isLoaded, setIsLoaded] = useState(false)
     const postsArr = Object.values(posts)
+    console.log("These are all the posts", postsArr)
 
     const iconErrorHandler = (e) => {
         e.currentTarget.src = icon
@@ -39,13 +40,13 @@ const AllPosts = () => {
                         {Object.values(posts).reverse().map(post => (
                             <div key={post.id} id='individual-post'>
                                 <div id='post-votes'>
-                                    {/* {user &&
+                                    {user &&
                                         <>
-                                            <button className="add-one-vote" onClick={dispatch(addOneVote({ user_id: user.id, post_id: post.id, vote: 1 }, post.id))}>Add Vote</button>
+                                            <button className="add-one-vote" onClick={addOneVote({ user_id: user.id, post_id: post.id, vote: 1 }, post.id)}>Add Vote</button>
                                             <div className="post-votes-sum">{post.Votes}</div>
-                                            <button className="minus-one-vote" onClick={dispatch(minusOneVote({ user_id: user.id, post_id: post.id, vote: -1 }, post.id))}>Remove Vote</button>
+                                            <button className="minus-one-vote" onClick={minusOneVote({ user_id: user.id, post_id: post.id, vote: -1 }, post.id)}>Minus Vote</button>
                                         </>
-                                    } */}
+                                    }
                                     {!user &&
                                         <>
                                             <div className="post-votes-sum">{post.Votes}</div>

@@ -30,7 +30,7 @@ def get_all_posts():
             Community.id == post.community_id).one()).to_dict()
         owner = (User.query.filter(User.id == post.user_id).one()).to_dict()
         votes = Vote.query.filter(Vote.post_id == post.id)
-        print("\n\n\n\n\n\n\n\n\n\n\n\n\n", votes)
+        print("\n\n\n\n\n\n\n\n\n\n\n\n\n votes", votes)
         post_dict = post.to_dict()
         post_dict["Community"] = community
         post_dict["Owner"] = owner
@@ -156,10 +156,23 @@ def create_comment(id):
 # GET ALL VOTES FOR A POST BY ID
 @post_routes.route("/<int:id>/votes", methods=["GET"])
 def get_votes(id):
-    votes = Vote.query.with_entities(
-        func.sum(Vote.vote)).filter(Vote.post_id == id).all()
+    # votes = Vote.query.with_entities(
+    #     func.sum(Vote.vote)).filter(Vote.post_id == id).all()
+    post = Post.query.get(id)
 
-    return jsonify(votes)
+    if not post:
+        return {"message": "Post couldn't be found.", "statusCode": 404}
+
+    votes_lst = []
+    votes = Vote.query.filter(Vote.community_id == id)
+    for vote in votes:
+        vote_dict = vote.to_dict()
+
+        owner = (User.query.filter(User.id == vote.user_id).one()).to_dict()
+        vote_dict["Owner"] = owner
+
+        votes_lst.append(vote_dict)
+    return jsonify(votes_lst)
 
 
 # ADD A VOTE TO A POST BY ID
