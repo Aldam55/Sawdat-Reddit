@@ -115,9 +115,9 @@ flask seed all
 pipenv run flask run
 ```
 
-Because this application uses SQLite, the upgrade command will detect that a database does not exist and will create it. While now you are creating the database you are also seeding in our 105 businesses, 315 business images, 30 users, and all of their 270 grumbles/nopes.
+Because this application uses SQLite, the upgrade command will detect that a database does not exist and will create it. While now you are creating the database you are also seeding in our 10 communities, 100 posts, and 25 users.
 
-- Navigate to your /Nope-Yelp/react-app/ folder and create another .env file.
+- Navigate to your /Sawdat-Reddit/react-app/ folder and create another .env file.
 - Paste in the REACT_APP_BASE_URL
 
 ```
