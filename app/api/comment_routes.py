@@ -20,9 +20,8 @@ comment_routes = Blueprint("comments", __name__)
 def get_all_comments():
     comments = Comment.query.all()
 
+
 # DELETE A COMMENT
-
-
 @comment_routes.route("/<int:id", methods=["DELETE"])
 @login_required
 def delete_comment(id):
@@ -36,4 +35,4 @@ def delete_comment(id):
     db.session.delete(comment)
     db.session.commit()
 
-    return {"message": "Successfully delete", "statusCode": 200}
+    return {"message": "Successfully deleted", "statusCode": 200}

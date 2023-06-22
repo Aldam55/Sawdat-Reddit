@@ -2,6 +2,7 @@ const ADD_ONE = "votes/ADD_ONE"
 const MINUS_ONE = "votes/MINUS_ONE"
 const LOAD_POST_VOTES = "votes/LOAD_POST_VOTES"
 const LOAD_ALL_VOTES = "votes/LOAD_ALL_VOTES"
+const REMOVE = "votes/REMOVE"
 
 const addOne = vote => ({
     type: ADD_ONE,
@@ -18,6 +19,10 @@ const loadPostVotes = votes => ({
 const loadAllVotes = votes => ({
     type: LOAD_ALL_VOTES,
     votes
+})
+const remove = voteId => ({
+    type: REMOVE,
+    voteId
 })
 
 export const addOneVote = (vote, postId) => async dispatch => {
@@ -68,6 +73,21 @@ export const getPostVotes = (postId) => async dispatch => {
         return votes
     } else {
         console.log("----GET POST VOTES THUNK ERROR----")
+    }
+    return
+}
+
+export const deleteVote = voteId => async dispatch => {
+    const response = await fetch(`/api/votes/${voteId}`, {
+        method: "DELETE"
+    })
+
+    if (response.ok){
+        const deleteVoteData = await response.json()
+        dispatch(remove(deleteVoteData))
+        return
+    } else {
+        console.log("----DELETE VOTE THUNK ERRO----")
     }
     return
 }

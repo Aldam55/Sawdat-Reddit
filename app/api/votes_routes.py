@@ -34,9 +34,16 @@ def get_all_votes():
     return {"votes": [vote for vote in votes_lst]}
 
 # DELETE VOTE
-
-
 @vote_routes.route("/<int:id>", methods=["DELETE"])
 @login_required
 def delete_vote(id):
-    pass
+    vote = Vote.query.get(id)
+    if not vote:
+        return {"message": "Vote couldn't be found", "statusCode": 404}
+
+    if not vote.user_id == current_user.id:
+        return {"message": "Forbidden", "stautsCode": 403}
+
+    db.session.delete(vote)
+    db.session.commit()
+    return {"message": "Successfully deleted", "statusCode": 200}
